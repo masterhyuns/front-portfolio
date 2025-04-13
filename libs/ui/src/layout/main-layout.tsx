@@ -10,9 +10,7 @@ const MainLayoutComponent: FC<MainLayoutProps> = ({ children }) => {
     <div className={styles.layout}>
       <header className={styles.header}>
         <nav className={styles.nav}>
-          <NavLink to="/projects" style={{ color: 'red' }}>
-            Projects
-          </NavLink>
+          <NavLink to="/projects">Projects</NavLink>
           <NavLink to="/components">Components</NavLink>
         </nav>
         <ThemeToggleButton />
@@ -21,7 +19,7 @@ const MainLayoutComponent: FC<MainLayoutProps> = ({ children }) => {
       <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>
-        © {new Date().getFullYear()} brickfolio
+        © {new Date().getFullYear()} front portfolio
       </footer>
     </div>
   );

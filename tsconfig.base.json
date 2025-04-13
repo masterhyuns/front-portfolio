@@ -16,7 +16,8 @@
     "paths": {
       "@portfolio/shared": ["libs/shared/src/index.ts"],
       "@portfolio/theme": ["libs/theme/src/index.ts"],
-      "@portfolio/ui": ["libs/ui/src/index.ts"]
+      "@portfolio/ui": ["libs/ui/src/index.ts"],
+      "@portfolio/ui/styles/*": ["libs/ui/src/styles/*"]
     }
   }
 }

@@ -33,6 +33,10 @@ export default defineConfig({
       '@portfolio/theme': path.resolve(__dirname, '../../libs/theme/src'),
       '@portfolio/ui': path.resolve(__dirname, '../../libs/ui/src'),
       '@portfolio/shared': path.resolve(__dirname, '../../libs/shared/src'),
+      '"@portfolio/ui/styles/*': path.resolve(
+        __dirname,
+        '../../libs/ui/src/styles/*'
+      ),
     },
   },
 });

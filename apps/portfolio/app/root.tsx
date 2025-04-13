@@ -12,13 +12,14 @@ import type {
   LoaderFunction,
 } from '@remix-run/node';
 import { ReactNode, useEffect } from 'react';
-import { MainLayout } from '@portfolio/ui';
 import { useThemeStore } from '@portfolio/shared';
 import { darkTheme, lightTheme } from '@portfolio/theme';
+import '@portfolio/ui/styles/styles.css.ts';
+import { ModalProvider } from '@portfolio/ui'; // ✅ 깔끔하고 안정적
 
 export const meta: MetaFunction = () => [
   {
-    title: 'New Remix App',
+    title: 'Front Portfolio',
   },
 ];
 
@@ -36,7 +37,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   });
 };
 
-export function Layout({ children }: { children: ReactNode }) {
+export default function App() {
   const { theme } = useLoaderData<typeof loader>();
   const themeClass = theme === 'dark' ? darkTheme : lightTheme;
 
@@ -53,14 +54,12 @@ export function Layout({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <ModalProvider>
+          <Outlet />
+        </ModalProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
   );
-}
-
-export default function App() {
-  return <Outlet />;
 }
