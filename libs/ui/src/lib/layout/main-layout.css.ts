@@ -22,7 +22,6 @@ export const header = style({
   alignItems: 'center',
   padding: `${vars.space[4]} ${vars.space[6]}`,
   borderBottom: `1px solid ${vars.color.gray200}`,
-  color: 'red',
   selectors: {
     '.dark &': {
       borderBottom: `1px solid ${vars.color.gray100}`,

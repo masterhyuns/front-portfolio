@@ -26,7 +26,7 @@ export default defineConfig({
     }),
     netlifyPlugin(),
     nxViteTsPaths(),
-    vanillaExtractPlugin(),
+    vanillaExtractPlugin({ identifiers: 'short' }),
   ],
   resolve: {
     alias: {

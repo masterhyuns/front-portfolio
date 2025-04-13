@@ -14,6 +14,7 @@ import type {
 import { ReactNode, useEffect } from 'react';
 import { MainLayout } from '@portfolio/ui';
 import { useThemeStore } from '@portfolio/shared';
+import { darkTheme, lightTheme } from '@portfolio/theme';
 
 export const meta: MetaFunction = () => [
   {
@@ -37,12 +38,14 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export function Layout({ children }: { children: ReactNode }) {
   const { theme } = useLoaderData<typeof loader>();
+  const themeClass = theme === 'dark' ? darkTheme : lightTheme;
+
   useEffect(() => {
     useThemeStore.getState().setTheme(theme); // ✅ SSR 초기 theme을 zustand에 동기화
   }, [theme]);
 
   return (
-    <html lang="en" className={theme}>
+    <html lang="en" className={themeClass}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,7 +53,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body>
-        <MainLayout>{children}</MainLayout>
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
