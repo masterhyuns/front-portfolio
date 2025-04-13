@@ -15,6 +15,9 @@ const ComponentLayoutComponent: FC<{ children: ReactNode }> = ({
             <li>
               <NavLink to="modal">Modal</NavLink>
             </li>
+            <li>
+              <NavLink to="form-wizard">Form Wizard</NavLink>
+            </li>
           </ul>
         </nav>
       </aside>

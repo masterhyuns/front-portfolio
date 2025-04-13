@@ -1,1 +1,1 @@
-export { useThemeStore } from './lib/store';
+export { useThemeStore, useFormWizardStore } from './lib/store';
