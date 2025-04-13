@@ -29,7 +29,7 @@ const ModalPage = () => {
 
   return (
     <div>
-      <SourceLink href="https://github.com/your-repo/..." />
+      <SourceLink href="https://github.com/masterhyuns/front-portfolio/tree/main/libs/ui/src/components/modal" />
       <h2>Modals</h2>
       <div
         style={{
