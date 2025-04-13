@@ -4,3 +4,4 @@ export * from './modal/alert';
 export * from './modal/cnofirm';
 export * from './modal/provider';
 export * from './modal/modal-footer';
+export * from './source-link/source-link';

@@ -9,5 +9,6 @@ export {
   Modal,
   useModal,
   ModalFooter,
+  SourceLink,
 } from './components';
 export { SnippetCard } from './snippet-card/snippet-card';

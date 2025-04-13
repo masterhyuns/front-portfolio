@@ -4,6 +4,7 @@ import {
   Modal,
   ModalFooter,
   SnippetCard,
+  SourceLink,
   useModal,
 } from '@portfolio/ui';
 
@@ -28,6 +29,7 @@ const ModalPage = () => {
 
   return (
     <div>
+      <SourceLink href="https://github.com/your-repo/..." />
       <h2>Modals</h2>
       <div
         style={{
