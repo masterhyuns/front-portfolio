@@ -2,6 +2,8 @@ import { vitePlugin as remix } from '@remix-run/dev';
 import { defineConfig } from 'vite';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+import { netlifyPlugin } from '@netlify/remix-adapter/plugin';
+
 import path from 'path';
 
 declare module '@remix-run/node' {
@@ -22,6 +24,7 @@ export default defineConfig({
         v3_lazyRouteDiscovery: true,
       },
     }),
+    netlifyPlugin(),
     nxViteTsPaths(),
     vanillaExtractPlugin(),
   ],
