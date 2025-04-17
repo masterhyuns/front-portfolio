@@ -16,4 +16,5 @@ export {
   Step2,
   Step3,
 } from './components';
+export type { FormFieldMeta } from './components';
 export { SnippetCard } from './snippet-card/snippet-card';

@@ -7,6 +7,8 @@ export const lightTheme = createTheme(vars, {
     black: '#000000',
     gray100: '#f5f5f5',
     gray200: '#e5e5e5',
+    gray300: '#D1D5DB',
+    gray600: '#4B5563',
     gray700: '#4b5563',
     gray800: '#1F2937',
     gray900: '#1a1a1a',

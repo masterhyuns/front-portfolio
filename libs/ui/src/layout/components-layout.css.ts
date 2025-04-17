@@ -25,3 +25,12 @@ export const content = style({
   flex: 1,
   padding: vars.space[6],
 });
+
+export const navList = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space[4],
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+});

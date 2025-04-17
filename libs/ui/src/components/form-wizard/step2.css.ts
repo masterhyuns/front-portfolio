@@ -12,7 +12,7 @@ export const group = style({
 export const label = style({
   fontSize: vars.fontSize.sm,
   fontWeight: 500,
-  color: vars.color.gray900,
+  color: vars.color.black,
   selectors: {
     '.dark &': {
       color: vars.color.gray100,

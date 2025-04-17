@@ -34,6 +34,14 @@ export const nav = style({
   gap: vars.space[4],
 });
 
+export const navList = style({
+  display: 'flex',
+  gap: vars.space[4],
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+});
+
 export const main = style({
   flex: 1,
   padding: vars.space[6],

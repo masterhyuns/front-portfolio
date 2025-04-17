@@ -7,6 +7,8 @@ export const vars = createThemeContract({
     black: null,
     gray100: null,
     gray200: null,
+    gray300: null,
+    gray600: null,
     gray700: null,
     gray800: null,
     gray900: null,

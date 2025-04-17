@@ -7,6 +7,8 @@ export const darkTheme = createTheme(vars, {
     black: '#ffffff',
     gray100: '#e5e5e5',
     gray200: '#555555',
+    gray300: '#4B5563',
+    gray600: '#D1D5DB',
     gray700: '#374151',
     gray800: '#E5E7EB',
     gray900: '#000000',

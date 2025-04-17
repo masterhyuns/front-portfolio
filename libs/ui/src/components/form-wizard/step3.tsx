@@ -27,7 +27,16 @@ const Step3Component = () => {
 
   const onSubmit = (values: any) => {
     update(values);
-    alert('제출 완료! 콘솔을 확인하세요.');
+    alert(
+      `제출 완료! \n [최종 제출 데이터] \n ${JSON.stringify(
+        {
+          ...data,
+          ...values,
+        },
+        null,
+        2
+      )}`
+    );
     console.log('[최종 제출 데이터]', {
       ...data,
       ...values,
