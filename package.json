@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "portfolio": "nx dev portfolio",
+    "auth-admin": "nx dev auth-admin",
     "portfolio:build": "nx build portfolio"
   },
   "private": true,

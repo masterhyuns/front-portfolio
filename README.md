@@ -1,5 +1,6 @@
 ```shell
   nx g @nx/remix:app apps/portfolio
+  nx g @nx/remix:app apps/auth-admin
 ```
 
 ```shell
