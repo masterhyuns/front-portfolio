@@ -1,12 +1,15 @@
 import Redis from 'ioredis';
 import { LoaderFunctionArgs, redirect } from 'react-router';
-import { authSession } from '@portfolio/server-shared';
+import { ApiResponse, authSession } from '@portfolio/server-shared';
+import { Token } from '@portfolio/server-entities';
+import { json } from '@portfolio/shared';
 
 const redisConnect = new Redis({
   host: 'localhost',
   port: 6379,
 });
 export const loader = async ({ request }: LoaderFunctionArgs) => {
+  console.log('혹시 여기 오는거야? ');
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state') || '/';
@@ -31,25 +34,34 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   if (!tokenRes.ok) {
     return redirect('/login');
   }
-  const tokenInfo = await tokenRes.json(); // { access_token, refresh_token, ... }
-  const session = await authSession.getSession(request.headers.get('Cookie'));
-  const sessionId = crypto.randomUUID();
-  session.set('session_id', sessionId);
-  await redisConnect.set(
-    sessionId,
-    JSON.stringify({
-      accessToken: tokenInfo.access_token,
-      refreshToken: tokenInfo.refresh_token,
-      expiresIn: tokenInfo.expires_in,
-    }),
-    'EX',
-    60 * 60 * 24 * 7
-  );
-  return redirect(state, {
-    headers: {
-      'Set-Cookie': await authSession.commitSession(session),
-    },
-  });
+  const tokenResponse = (await tokenRes.json()) as ApiResponse<Token>; // { access_token, refresh_token, ... }
+  switch (tokenResponse.status) {
+    case 200: {
+      const token = tokenResponse.data;
+      const session = await authSession.getSession(
+        request.headers.get('Cookie')
+      );
+      const sessionId = crypto.randomUUID();
+      session.set('session_id', sessionId);
+      await redisConnect.set(
+        sessionId,
+        JSON.stringify({
+          accessToken: token.access_token,
+          refreshToken: token.refresh_token,
+          expiresIn: token.expires_in,
+        }),
+        'EX',
+        60 * 60 * 24 * 7
+      );
+      return redirect(state, {
+        headers: {
+          'Set-Cookie': await authSession.commitSession(session),
+        },
+      });
+    }
+    default:
+      return json({});
+  }
 };
 
 const CallbackPage = () => {

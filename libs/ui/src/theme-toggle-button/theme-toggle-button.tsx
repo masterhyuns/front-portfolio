@@ -3,6 +3,7 @@ import { Moon, Sun } from 'lucide-react';
 import { useThemeStore } from '@portfolio/shared';
 import { darkTheme, lightTheme } from '@portfolio/theme';
 import * as styles from './theme-toggle-button.css';
+import { AnimatePresence, motion } from 'framer-motion';
 /**
  * 테마 토글 버튼 컴포넌트
  * - zustand 전역 상태를 사용하여 테마 변경
@@ -11,6 +12,7 @@ import * as styles from './theme-toggle-button.css';
 const ThemeToggleButtonComponent = () => {
   const theme = useThemeStore((state) => state.theme);
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
+  const isMounted = typeof theme === 'string'; // mount 확인
   // 테마가 변경될 때 HTML 루트 클래스에 반영 (다크/라이트)
   useEffect(() => {
     document.documentElement.classList.remove(
@@ -20,7 +22,6 @@ const ThemeToggleButtonComponent = () => {
       theme === 'light' ? lightTheme : darkTheme
     );
   }, [theme]);
-
   return (
     <button
       className={styles.toggleButton}
@@ -28,7 +29,19 @@ const ThemeToggleButtonComponent = () => {
       title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
       aria-label="Toggle theme"
     >
-      {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+      <AnimatePresence mode="wait" initial={false}>
+        {isMounted && (
+          <motion.span
+            key={theme}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.2 }}
+          >
+            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+          </motion.span>
+        )}
+      </AnimatePresence>
     </button>
   );
 };

@@ -21,7 +21,7 @@ function getAccessTokenFromCookie(): string | null {
 
 // axios instance
 const apiClient = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: 'http://localhost:5173',
   withCredentials: true, // refresh_token 포함
   headers: {
     'Content-Type': 'application/json',

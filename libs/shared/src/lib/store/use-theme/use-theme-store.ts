@@ -3,7 +3,7 @@ import { ThemeMode, ThemeState } from './types';
 
 // Zustand를 이용한 테마 상태 전역 store 생성
 const useThemeStoreHook = create<ThemeState>((set) => ({
-  theme: 'light',
+  theme: undefined,
 
   // 외부에서 theme 값을 정확히 반영하도록 상태만 관리
   setTheme: (mode: ThemeMode) => {

@@ -1,5 +1,4 @@
 import { useAuthStore } from '@portfolio/shared';
-import { Link, Outlet } from '@remix-run/react';
 
 const IndexPage = () => {
   const { auth } = useAuthStore();

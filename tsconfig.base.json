@@ -14,6 +14,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@portfolio/widgets": ["libs/widgets/src/index.ts"],
+      "@portfolio/entities": ["libs/entities/src/index.ts"],
+      "@portfolio/server-entities": ["libs/entities/src/server.index.ts"],
+      "@portfolio/features": ["libs/features/src/index.ts"],
       "@portfolio/server-shared": ["libs/shared/src/server.index.ts"],
       "@portfolio/shared": ["libs/shared/src/index.ts"],
       "@portfolio/theme": ["libs/theme/src/index.ts"],

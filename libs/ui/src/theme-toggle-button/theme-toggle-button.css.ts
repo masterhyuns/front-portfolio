@@ -6,6 +6,7 @@ export const toggleButton = style({
   height: '36px',
   borderRadius: vars.radius.full,
   display: 'flex',
+  paddingTop: '3px',
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: vars.color.gray100,
