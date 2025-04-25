@@ -51,6 +51,16 @@ const ComponentLayoutComponent: FC<{ children: ReactNode }> = ({
                 Form Builder
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="table"
+                className={({ isActive }) =>
+                  clsx(navStyles.link, isActive && navStyles.activeLink)
+                }
+              >
+                Table
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </aside>

@@ -11,3 +11,4 @@ export * from './form-wizard/step1';
 export * from './form-wizard/step2';
 export * from './form-wizard/step3';
 export * from './form-wizard/types';
+export * from './data-grid';

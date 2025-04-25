@@ -24,6 +24,7 @@ export const sidebar = style({
 export const content = style({
   flex: 1,
   padding: vars.space[6],
+  width: 'calc(100% - 220px)',
 });
 
 export const navList = style({
